@@ -4,16 +4,16 @@ import { z } from 'zod';
 import { PokemonClient } from 'pokenode-ts';
 
 export const appRouter = trpc.router().query('get-pokemon-by-id', {
-    input: z.object({ id: z.number() }),
-    async resolve({ input }) {
+  input: z.object({ id: z.number() }),
+  async resolve({ input }) {
 
-      const api = new PokemonClient();
+    const api = new PokemonClient();
 
-      const pokemon = await api.getPokemonById(input.id);
+    const pokemon = await api.getPokemonById(input.id);
 
-      return pokemon;
-    },
-  });
+    return { name: pokemon.name, sprites: pokemon.sprites };
+  },
+});
 
 // export type definition of API
 export type AppRouter = typeof appRouter;

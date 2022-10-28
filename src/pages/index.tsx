@@ -18,8 +18,6 @@ const Home: NextPage = () => {
   const firstPokemonSprite = firstPokemon.data?.sprites.front_default  ?? undefined;
   const secondPokemonSprite = secondPokemon.data?.sprites.front_default ?? undefined;
 
-  console.log(firstPokemon);
-
   return (
     <div className='h-screen w-screen flex flex-col justify-center items-center'>
       <div className='text-2xl text-center'>Which pokemon is Rounder?</div>
